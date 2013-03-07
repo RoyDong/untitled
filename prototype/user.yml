@@ -1,0 +1,26 @@
+## YAML Template.
+---
+
+role:
+    guest: 0
+    user: 1
+    admin: 2
+
+user:
+    properties:
+        id: string
+        name: string
+        password: string
+        role: []
+
+    behaviors:
+        signup: 
+            roles: [role.guest]
+            params: [name, password]
+
+        signin:
+            roles: [role.guest]
+            params: [name, password]
+
+        logout:
+            roles: [role.user, role.admin]
